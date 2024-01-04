@@ -1,9 +1,23 @@
-import { Card, Button, Box, IconButton, Table, Typography } from "@mui/joy";
+import {
+  Card,
+  Button,
+  Box,
+  IconButton,
+  Table,
+  Typography,
+  Divider,
+  Input,
+} from "@mui/joy";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ModeNightIcon from "@mui/icons-material/ModeNight";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Link from "next/link";
 import SettingsIcon from "@mui/icons-material/Settings";
+import DeleteIcon from "@mui/icons-material/Delete";
+import MoveUpIcon from "@mui/icons-material/MoveUp";
+import FolderZipIcon from "@mui/icons-material/FolderZip";
+import EditIcon from "@mui/icons-material/Edit";
+import SaveIcon from "@mui/icons-material/Save";
 export default function Home() {
   return (
     <>
@@ -44,9 +58,41 @@ export default function Home() {
           </Box>
           {/* main */}
           <Box sx={{ gridArea: "main", bgcolor: "white" }}>
-            <Box sx={{ display: "flex" }}>
-              <Card>
-                <Typography level="title-lg">Favourite paths</Typography>
+            <Box sx={{ display: "flex", padding:'2rem' }}>
+              <Card variant='soft' sx={{ overflow:'auto', height:'100%' }}>
+                <Typography sx={{display:'flex', justifyContent:'center'}} level="title-lg">Favourite paths</Typography>
+                <Button variant="outlined" color='neutral' sx={{ borderRadius: "xl" }}>
+                  Add path
+                </Button>
+                <Divider />
+                  <Input 
+                    startDecorator={
+                      <IconButton sx={{ borderRadius: "xl" }}>
+                        <EditIcon />
+                      </IconButton>
+                    }
+                    endDecorator={
+                      <IconButton sx={{ borderRadius: "xl" }}>
+                        <DeleteIcon />
+                      </IconButton>
+                    }
+                    sx={{ borderRadius: "xl" }}
+                  />
+                  
+                  <Input
+                    startDecorator={
+                      <IconButton sx={{ borderRadius: "xl" }}>
+                        <EditIcon />
+                      </IconButton>
+                    }
+                    endDecorator={
+                      <IconButton sx={{ borderRadius: "xl" }}>
+                        <DeleteIcon />
+                      </IconButton>
+                    }
+                    sx={{ borderRadius: "xl" }}
+                  />
+                 
               </Card>
             </Box>
             <Box sx={{ display: "flex" }}>
@@ -64,15 +110,26 @@ export default function Home() {
                     <td>159</td>
                     <td>
                       <Box sx={{ display: "flex", gap: "1rem" }}>
-                        <Button variant="outlined" size="sm" color="neutral">
-                          Unzip
-                        </Button>
-                        <Button variant="outlined" size="sm" color="neutral">
-                          Move
-                        </Button>
-                        <Button variant="outlined" size="sm" color="danger">
-                          Delete
-                        </Button>
+                        <IconButton
+                          sx={{ borderRadius: "lg" }}
+                          variant="outlined"
+                        >
+                          {" "}
+                          <FolderZipIcon />
+                        </IconButton>
+                        <IconButton
+                          sx={{ borderRadius: "lg" }}
+                          variant="outlined"
+                        >
+                          {" "}
+                          <MoveUpIcon />
+                        </IconButton>
+                        <IconButton
+                          sx={{ borderRadius: "lg" }}
+                          variant="outlined"
+                        >
+                          <DeleteIcon />
+                        </IconButton>
                       </Box>
                     </td>
                   </tr>
