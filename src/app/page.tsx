@@ -3,6 +3,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ModeNightIcon from "@mui/icons-material/ModeNight";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import Link from "next/link";
+import SettingsIcon from "@mui/icons-material/Settings";
 export default function Home() {
   return (
     <>
@@ -20,6 +21,7 @@ export default function Home() {
               "bottom bottom bottom"`,
           }}
         >
+          {/* top */}
           <Box
             sx={{
               gridArea: "top",
@@ -31,14 +33,24 @@ export default function Home() {
             }}
           >
             <Typography level="h3">Downloads manager</Typography>
-            <IconButton sx={{ borderRadius: "lg" }} variant="outlined">
-              <ModeNightIcon />
-            </IconButton>
+            <Box sx={{ display: "flex", gap: "1rem" }}>
+              <IconButton sx={{ borderRadius: "lg" }} variant="outlined">
+                <ModeNightIcon />
+              </IconButton>
+              <IconButton sx={{ borderRadius: "lg" }} variant="outlined">
+                <SettingsIcon />
+              </IconButton>
+            </Box>
           </Box>
-
+          {/* main */}
           <Box sx={{ gridArea: "main", bgcolor: "white" }}>
-            <Box sx={{ m: "2rem" }}>
-              <Table aria-label="basic table" sx={{}}>
+            <Box sx={{ display: "flex" }}>
+              <Card>
+                <Typography level="title-lg">Favourite paths</Typography>
+              </Card>
+            </Box>
+            <Box sx={{ display: "flex" }}>
+              <Table aria-label="basic table">
                 <thead>
                   <tr>
                     <th style={{ width: "40%" }}>File name</th>
@@ -53,10 +65,10 @@ export default function Home() {
                     <td>
                       <Box sx={{ display: "flex", gap: "1rem" }}>
                         <Button variant="outlined" size="sm" color="neutral">
-                          Move
+                          Unzip
                         </Button>
                         <Button variant="outlined" size="sm" color="neutral">
-                          Unzip and move
+                          Move
                         </Button>
                         <Button variant="outlined" size="sm" color="danger">
                           Delete
