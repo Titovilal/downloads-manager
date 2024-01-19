@@ -1,5 +1,13 @@
 "use client";
-import { Box, IconButton, Table, Sheet, Tooltip, Typography, Button } from "@mui/joy";
+import {
+  Box,
+  IconButton,
+  Table,
+  Sheet,
+  Tooltip,
+  Typography,
+  Button,
+} from "@mui/joy";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import FolderZipIcon from "@mui/icons-material/FolderZip";
@@ -35,11 +43,20 @@ const FileTable: React.FC = () => {
   return (
     <Sheet variant="outlined" sx={{ borderRadius: "xl" }}>
       <Table>
-        <caption><Button color="neutral" variant='outlined' startDecorator={<Add />} sx={{borderRadius: 'xl'}}>Add favourite folder</Button></caption>
+        <caption>
+          <Button
+            color="neutral"
+            variant="outlined"
+            startDecorator={<Add />}
+            sx={{ borderRadius: "xl" }}
+          >
+            Add favourite folder
+          </Button>
+        </caption>
         <thead>
           <tr>
-            <th>File name</th>
-            <th>Actions</th>
+            <th style={{ width: "60%" }}>File name</th>
+            <th style={{ width: "40%" }}>Actions</th>
           </tr>
         </thead>
         <tbody>

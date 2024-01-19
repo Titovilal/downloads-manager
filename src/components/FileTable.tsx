@@ -1,5 +1,5 @@
 "use client";
-import { Box, IconButton, Table, Sheet, Button } from "@mui/joy";
+import { Box, IconButton, Table, Sheet, Button, Tooltip } from "@mui/joy";
 import DeleteIcon from "@mui/icons-material/Delete";
 import MoveUpIcon from "@mui/icons-material/MoveUp";
 import FolderZipIcon from "@mui/icons-material/FolderZip";
@@ -37,9 +37,6 @@ const FileTable: React.FC = () => {
       variant="outlined"
       sx={{
         borderRadius: "xl",
-        "& thead th:nth-child(1)": { width: "80%" },
-        "& thead th:nth-child(2)": { width: "10%" },
-        "& thead th:nth-child(3)": { width: "10%" },
       }}
     >
       <Table>
@@ -59,13 +56,20 @@ const FileTable: React.FC = () => {
             >
               Go to downloads
             </Button>
+            <Button
+              color="neutral"
+              variant="outlined"
+              sx={{ borderRadius: "xl" }}
+            >
+              Remove unused folders
+            </Button>
           </Box>
         </caption>
         <thead>
           <tr>
             <th style={{ width: "40%" }}>File name</th>
-            <th>Size (MB)</th>
-            <th>Actions</th>
+            <th style={{ width: "10%" }}>Size (MB)</th>
+            <th style={{ width: "10%" }}>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -75,15 +79,21 @@ const FileTable: React.FC = () => {
               <td>{file.sizeMb}</td>
               <td>
                 <Box sx={{ display: "flex", gap: "1rem" }}>
-                  <IconButton sx={{ borderRadius: "lg" }} variant="outlined">
-                    <FolderZipIcon />
-                  </IconButton>
-                  <IconButton sx={{ borderRadius: "lg" }} variant="outlined">
-                    <MoveUpIcon />
-                  </IconButton>
-                  <IconButton sx={{ borderRadius: "lg" }} variant="outlined">
-                    <DeleteIcon />
-                  </IconButton>
+                  <Tooltip title="Zip">
+                    <IconButton sx={{ borderRadius: "lg" }} variant="outlined">
+                      <FolderZipIcon />
+                    </IconButton>
+                  </Tooltip>
+                  <Tooltip title="Move">
+                    <IconButton sx={{ borderRadius: "lg" }} variant="outlined">
+                      <MoveUpIcon />
+                    </IconButton>
+                  </Tooltip>
+                  <Tooltip title="Delete">
+                    <IconButton sx={{ borderRadius: "lg" }} variant="outlined">
+                      <DeleteIcon />
+                    </IconButton>
+                  </Tooltip>
                 </Box>
               </td>
             </tr>
