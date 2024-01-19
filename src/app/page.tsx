@@ -1,4 +1,4 @@
-import { Box } from "@mui/joy";
+import { Box, Button } from "@mui/joy";
 import Header from "../components/Header";
 import Favourites from "../components/Favourites";
 import FileTable from "../components/FileTable";
@@ -11,7 +11,7 @@ export default function Home() {
           sx={{
             display: "grid",
             bgcolor: "neutral.100",
-            gridTemplateColumns: `1fr 1fr 1fr`,
+            gridTemplateColumns: `30rem 1fr 1fr`,
             minHeight: "100vh",
             gridTemplateRows: "3rem 1fr 2rem",
             gridTemplateAreas: `
@@ -34,8 +34,10 @@ export default function Home() {
             <Header />
           </Box>
           {/* main */}
-          <Box sx={{ gridArea: "main", bgcolor: "white" }}>
-            <Favourites />
+
+          <Box sx={{ gridArea: "main", bgcolor: "white", px: "2rem", py: "1rem" , gap: "1rem", display: "flex", flexDirection: "column"}}>
+            <Button variant="outlined" color="neutral" sx={{alignSelf: "center", borderRadius: "xl"}}>Favourites</Button>
+
             <FileTable />
           </Box>
           {/* bottom */}
